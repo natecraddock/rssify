@@ -1,9 +1,6 @@
-FROM alpine:3.17
+FROM python:3.11-alpine
 
 EXPOSE 8080
-
-RUN apk add --no-cache python3
-RUN python3 -m ensurepip
 
 RUN mkdir app/
 
@@ -16,4 +13,4 @@ COPY setup.py rssify.py app/
 WORKDIR app/
 RUN pip3 install .
 
-CMD ["python3", "rssify.py"]
+CMD ["python", "rssify.py"]
