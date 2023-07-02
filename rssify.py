@@ -112,6 +112,6 @@ def rssify(id):
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 1111))
 
-    load_scrapers("feeds.toml")
+    load_scrapers("data/feeds.toml")
 
     app.run(host='0.0.0.0', port=port)
