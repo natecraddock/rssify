@@ -46,13 +46,17 @@ class Scraper:
 
         items = []
         for post in posts:
+            fmt = "%Y-%m-%d"
+            if "/" in post["date"]:
+                fmt = fmt.replace("-", "/")
+
             items.append(Item(
                 title=post["title"],
                 link=post["link"],
                 description=post["title"],
                 author="Noah",
                 guid=Guid(post["link"]),
-                pubDate=datetime.strptime(post["date"], "%Y-%m-%d"),
+                pubDate=datetime.strptime(post["date"], fmt),
             ))
 
         feed = Feed(
